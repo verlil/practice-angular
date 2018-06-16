@@ -1,6 +1,6 @@
-import { EventEmitter } from '@angular/core';
-import { Recipe } from './recipe.model';
-import { Ingredient } from '../shared/ingredient.model';
+import {EventEmitter} from '@angular/core';
+import {Recipe} from './recipe.model';
+import {Ingredient} from '../shared/ingredient.model';
 
 export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>();
@@ -26,8 +26,13 @@ export class RecipeService {
       ])
   ];
 
-  getRecipes(){
+  getRecipes() {
     //return this.recipes;  - this wil return a reference to this array, not a copy
     return this.recipes.slice(); //this will return a copy of array
   }
+
+  getRecipe(index: number) {
+    return this.recipes[index];
+  }
+
 }
