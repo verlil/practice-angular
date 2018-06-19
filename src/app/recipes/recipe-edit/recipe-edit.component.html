@@ -64,7 +64,7 @@
           <button class="btn btn-success" type="button" (click)="onAddIngredient()">Add Ingredient</button>
         </div>
         <div class="col-4">
-          <button type="submit" class="btn btn-success mr-2">Save</button>
+          <button type="submit" class="btn btn-success mr-2" [disabled]="recipeForm.invalid">Save</button>
           <button type="button" class="btn btn-danger">Cancel</button>
         </div>
       </div>
