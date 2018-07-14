@@ -13,8 +13,8 @@
         <div class="dropdown nav-item" style="cursor: pointer">
           <a class="dropdown-toggle nav-link" role="button"  data-toggle="dropdown">Manage</a>
           <div class="dropdown-menu">
-            <div class="dropdown-item"><a>Save data</a></div>
-            <div class="dropdown-item"><a>Fetch data</a></div>
+            <div class="dropdown-item" (click)="onSaveData()"><a>Save data</a></div>
+            <div class="dropdown-item" (click)="onFetchData()"><a>Fetch data</a></div>
             <div class="dropdown-item"><a>Hello!</a></div>
           </div>
         </div>
