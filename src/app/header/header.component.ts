@@ -28,4 +28,8 @@ export class HeaderComponent implements OnInit {
     this.database.fetchRecipes();
   }
 
+  onLogout(){
+    this.authService.logout();
+  }
+
 }
