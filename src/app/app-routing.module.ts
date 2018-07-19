@@ -11,12 +11,6 @@ import {AuthGuardService} from './auth/auth-guard.service';
 
 const appRoutes: Routes = [
   {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-  {path: 'recipes', component: RecipesComponent, children: [
-      {path: '', component: RecipeStartComponent},
-      {path: 'new', component: RecipeEditComponent, canActivate: [AuthGuardService]},
-      {path: ':id', component: RecipeDetailComponent},
-      {path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuardService]}
-    ]},
   {path: 'shopping-list', component: ShoppingListComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'signin', component: SigninComponent}
@@ -25,7 +19,7 @@ const appRoutes: Routes = [
 // @NgModule transforms an ordinary TS class into a module
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes) //forRoot - only for root module, for the other modules use forChild
   ],
   exports: [RouterModule]
 })
