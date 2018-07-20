@@ -14,7 +14,7 @@ const recipesRoutes: Routes = [
       {path: ':id', component: RecipeDetailComponent},
       {path: ':id/edit', component: RecipeEditComponent, canActivate: [AuthGuardService]}
     ]
-  },
+  }
 ];
 
 @NgModule({
