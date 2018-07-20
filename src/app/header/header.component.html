@@ -13,8 +13,8 @@
       </ul>
       <div class="nav navbar-nav">
         <ng-template [ngIf]="!authService.isAuthenticated()">
-          <li><a routerLink="/signup" class="nav-link">Register</a></li>
-          <li><a routerLink="/signin" class="nav-link">Login</a></li>
+          <li><a routerLink="/auth/signup" class="nav-link">Register</a></li>
+          <li><a routerLink="/auth/signin" class="nav-link">Login</a></li>
         </ng-template>
         <ng-template [ngIf]="authService.isAuthenticated()">
           <div class="dropdown nav-item" style="cursor: pointer">
