@@ -9,9 +9,11 @@ import {AuthService} from '../../auth/auth.service';
 })
 export class HeaderComponent implements OnInit {
   isAuthenticated: any;
+  authService: AuthService;
 
   constructor(private database: DataStorageService,
-              private authService: AuthService) {
+               authService: AuthService) {
+    this.authService = authService;
   }
 
   ngOnInit() {
@@ -28,7 +30,7 @@ export class HeaderComponent implements OnInit {
     this.database.fetchRecipes();
   }
 
-  onLogout(){
+  onLogout() {
     this.authService.logout();
   }
 
