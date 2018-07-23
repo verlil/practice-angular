@@ -1,4 +1,4 @@
-import {RouterModule, Routes} from '@angular/router';
+import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
 import {NgModule} from '@angular/core';
 import {HomeComponent} from './core/home/home.component';
 
@@ -13,7 +13,7 @@ const appRoutes: Routes = [
 // @NgModule transforms an ordinary TS class into a module
 @NgModule({
   imports: [
-    RouterModule.forRoot(appRoutes) // forRoot - only for root module, for the other modules use forChild
+    RouterModule.forRoot(appRoutes, {preloadingStrategy: PreloadAllModules}) // forRoot - only for root module, for the other modules use forChild
   ],
   exports: [RouterModule]
 })
