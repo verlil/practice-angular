@@ -101,4 +101,7 @@ export class RecipeEditComponent implements OnInit {
 
   }
 
+  trackByFn(index, item) {
+    return index;  }
+
 }

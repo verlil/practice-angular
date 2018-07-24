@@ -22,7 +22,7 @@ export class DataStorageService {
   fetchRecipes() {
     const token = this.authService.getToken();
 
-    this.http.get('https://recipe-book-c65eb.firebaseio.com/recipes.json?auth=' + token)
+    this.http.get<Recipe[]>('https://recipe-book-c65eb.firebaseio.com/recipes.json?auth=' + token)
       .pipe(map(data => {
         const recipes: Recipe[] = Object.values(data);
         for (let recipe of recipes) {
