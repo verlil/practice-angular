@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {DataStorageService} from '../../shared/data-storage.service';
 import {AuthService} from '../../auth/auth.service';
+import {HttpEvent, HttpEventType} from '@angular/common/http';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ export class HeaderComponent implements OnInit {
   authService: AuthService;
 
   constructor(private database: DataStorageService,
-               authService: AuthService) {
+              authService: AuthService) {
     this.authService = authService;
   }
 
@@ -21,9 +22,18 @@ export class HeaderComponent implements OnInit {
   }
 
   onSaveData() {
-    this.database.storeRecipes().subscribe(result => {
-      console.log(result);
-    });
+    this.database.storeRecipes().subscribe(
+      (result: HttpEvent<Object>) => {
+        switch (result.type) {
+          case HttpEventType.Response:
+            console.log('Response');
+            break;
+          case HttpEventType.Sent:
+            console.log('Sent');
+            break;
+        }
+        console.log(result);
+      });
   }
 
   onFetchData() {
