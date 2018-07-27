@@ -23,18 +23,18 @@ export class DataStorageService {
     const token = this.authService.getToken();
 
     this.http.get<Recipe[]>('https://recipe-book-c65eb.firebaseio.com/recipes.json?auth=' + token, {
-      observe: 'response',
-      responseType: 'text'
+      observe: 'body',
+      responseType: 'json'
     })
       .pipe(map(data => {
         console.log(data);
-        // const recipes: Recipe[] = Object.values(data);
-        // for (let recipe of recipes) {
-        //   if (!recipe['ingredient']) {
-        //     recipe['ingredients'] = [];
-        //   }
-        // }
-        // return recipes;
+        const recipes: Recipe[] = Object.values(data);
+        for (let recipe of recipes) {
+          if (!recipe['ingredient']) {
+            recipe['ingredients'] = [];
+          }
+        }
+        return recipes;
       })).subscribe(data => {
       this.recipeService.setRecipes(Object.values(data));
     });
